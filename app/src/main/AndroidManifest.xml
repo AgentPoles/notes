@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mycompany.myapp.notes">
+    <uses-configuration android:reqKeyboardType="qwerty" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <receiver android:name=".PhonesReceiver">
+            - <intent-filter android:priority="299">
+            <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+        </intent-filter>
+        </receiver>
+
+        <activity android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:configChanges="screenSize|orientation|keyboardHidden">
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        - <activity android:name=".MyActivity" android:label="Calling">
+        - <intent-filter>
+        <action android:name="com.mycompany.myapp.notes.MyActivity" />
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+    </activity>
+        - <activity android:name=".myPreferenceActivity" android:label="manage">
+        - <intent-filter>
+        <action android:name="com.mycompany.myPreferenceActivity" />
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+    </activity>
+        - <activity android:name=".Files" android:label="Calling">
+        - <intent-filter>
+        <action android:name="com.mycompany.myapp.notes.Files" />
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+    </activity>
+
+    </application>
+
+</manifest>
